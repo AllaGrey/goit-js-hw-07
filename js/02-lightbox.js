@@ -1,11 +1,7 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
-console.log(galleryItems);
-
 const galleryEl = document.querySelector(".gallery");
-
-galleryEl.addEventListener("click", onGalleryItemClick);
 
 const elementOfGalleryMarkup = galleryItems
   .map(
@@ -16,16 +12,7 @@ const elementOfGalleryMarkup = galleryItems
 
 galleryEl.insertAdjacentHTML("beforeend", elementOfGalleryMarkup);
 
-function onGalleryItemClick(e) {
-  e.preventDefault();
-  if (e.target.nodeName !== "IMG") {
-    return;
-  }
-
-  new SimpleLightbox(".gallery a", {
-    captionsData: "alt",
-    captionPosition: "bottom",
-    captionDelay: "250",
-    alertError: "false",
-  });
-}
+new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: "250",
+});
